@@ -1,0 +1,17 @@
+                                    Java Serialization (Serileştirme)
+
+ Java bilindiği üzerine nesneye yönelik bir dil
+
+ Primitive tipler (int, char, boolean … gibi) hariç neredeyse herşey nesne ve bu nesneleri sürekli ve sürekli kullanırız.
+
+ Ancak nesneleri bazen JVM dışında kullanmak gerekebiliyor .
+
+ Fakat dışarıda kullandığımız bir nesnemizi tekrar içeride kullanmak istediğimizde
+
+nesne içinde kullanılan değerlerin hangi tipte olduğunu öğrenemiyoruz.
+
+ Yani herhangi bir sınıftan bir nesne üretip, bunu bir dosyaya yazdırıp onu
+
+tekrar dosyadan okuduğumuzda değerlerin tip bilgisini bilememe problemimiz var .
+
+ İşte tam bu durumda Java Serialization API yardımımıza koşuyor.

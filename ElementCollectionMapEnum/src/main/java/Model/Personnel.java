@@ -1,0 +1,91 @@
+package Model;
+import javax.persistence.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+
+@Entity
+public class Personnel {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int personnelId;
+
+    private String firstName;
+
+    private String lastName;
+
+    @Temporal(TemporalType.TIME)
+    private Date birthOfDate;
+
+    @ElementCollection
+    @CollectionTable(name = "phoneNumbers" , joinColumns = @JoinColumn(name = "personnelId"))
+    @MapKeyColumn(name = "phoneType")
+    @MapKeyEnumerated(EnumType.STRING) // verileri 0 ,1,2 değilde string tipinde tutar
+    @Column(name = "PhoneNumber")
+    private Map<phoneTypes, String> phoneNumbers = new HashMap<>();
+
+    public Personnel() {
+    }
+
+    public Personnel(String firstName, String lastName, Date birthOfDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthOfDate = birthOfDate;
+
+    }
+
+    public void addPhoneNumber(phoneTypes phoneTypes , String phoneNumber){
+        this.phoneNumbers.put(phoneTypes,phoneNumber);
+    }
+
+    public int getPersonnelId() {
+        return personnelId;
+    }
+
+    public void setPersonnelId(int personnelId) {
+        this.personnelId = personnelId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Date getBirthOfDate() {
+        return birthOfDate;
+    }
+
+    public void setBirthOfDate(Date birthOfDate) {
+        this.birthOfDate = birthOfDate;
+    }
+
+    public Map<phoneTypes, String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(Map<phoneTypes, String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
+    }
+
+    @Override
+    public String toString() {
+        return "Model.Personnel{" +
+                "personnelId=" + personnelId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", birthOfDate=" + birthOfDate +
+                '}';
+    }
+}

@@ -1,0 +1,16 @@
+     OneToMany
+
+ Şöyle örnek verebiliriz .
+
+ Bir sitemiz var Kullanıcılar kaydolarak elindeki ürünleri satmaya çalışıyor .
+
+ O zaman bir veritabanımız olmalı .
+
+ Bir user tablosu bir de ürün tablosu şart .
+
+ Peki bir kullanıcı birden fazla ürün satmak isterse ne yapacağız .
+
+ Bu gibi durumlarda ara tablo oluşturulur veya ürün tablosuna ürün ürün satan kullanıcının Id'si eklenir.
+
+ Bu ilişki Bir kullanıcı birden fazla ürün ekleyebiliyorsa ve aynı ürün farklı kullanıcı satamıyorsa bu ilişkiye
+ OneToMany ilişkisi denir .
